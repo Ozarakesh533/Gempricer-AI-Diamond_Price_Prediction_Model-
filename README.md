@@ -5,6 +5,18 @@
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.0+-orange.svg)](https://scikit-learn.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+
+## 🌐 Live Deployment
+
+🚀 **GemPricer AI is LIVE!**  
+Experience real-time diamond price predictions powered by Machine Learning.
+
+🔗 **Live App:**  
+👉 https://gempricer-ai-diamond-price-prediction-07ke.onrender.com
+
+> ⚠️ Note: Initial load may take a few seconds due to free-tier hosting (cold start).
+
+---
 ## 🎯 Project Overview
 
 **GemPricer AI** is an advanced machine learning-powered web application that revolutionizes diamond valuation using AI-driven predictions based on the industry-standard **4Cs** (Cut, Clarity, Color, Carat). This sophisticated system provides accurate, data-driven diamond price predictions to help jewelers, buyers, and enthusiasts make informed decisions.
