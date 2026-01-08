@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .price {
+            font-size: 2rem;
+            color: #2575fc;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .detail {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diamond Price Prediction Results</h1>
+        
+        <div class="detail">
+            <strong>Carat:</strong> {{ carat }} ct
+        </div>
+        
+        <div class="detail">
+            <strong>Cut:</strong> {{ cut }}
+        </div>
+        
+        <div class="detail">
+            <strong>Color:</strong> {{ color }}
+        </div>
+        
+        <div class="detail">
+            <strong>Clarity:</strong> {{ clarity }}
+        </div>
+        
+        <div class="detail">
+            <strong>Dimensions:</strong> {{ x }} × {{ y }} × {{ z }} mm
+        </div>
+        
+        <div class="detail">
+            <strong>Depth:</strong> {{ depth }}%
+        </div>
+        
+        <div class="detail">
+            <strong>Table:</strong> {{ table }}%
+        </div>
+        
+        <div class="price">
+            Estimated Price: {{ formatted_prediction }}
+        </div>
+        
+        <div style="margin-top: 20px; padding: 10px; background: #e9ecef; border-radius: 4px;">
+            <h3>Debug Information:</h3>
+            <p><strong>Raw prediction:</strong> {{ prediction }}</p>
+            <p><strong>Formatted prediction:</strong> {{ formatted_prediction }}</p>
+            <p><strong>All variables:</strong></p>
+            <ul>
+                <li>carat: {{ carat }}</li>
+                <li>cut: {{ cut }}</li>
+                <li>color: {{ color }}</li>
+                <li>clarity: {{ clarity }}</li>
+                <li>depth: {{ depth }}</li>
+                <li>table: {{ table }}</li>
+                <li>x: {{ x }}</li>
+                <li>y: {{ y }}</li>
+                <li>z: {{ z }}</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <a href="/" style="background: #2575fc; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

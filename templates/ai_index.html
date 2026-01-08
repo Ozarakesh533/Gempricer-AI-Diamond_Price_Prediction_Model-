@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>GemPricer AI • Futuristic</title>
+  <link href="/assets/img/diamond.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="/assets/vendor/swiper/swiper-bundle.min.css?v=2">
+  <style>
+    :root { --night:#0a0f1c; --violet:#7c3aed; --cyan:#22d3ee; --pink:#fb7185; }
+    body{background:var(--night);color:#e2e8f0;font-family:Poppins,ui-sans-serif}
+    
+    /* Enhanced AI Background with Light Rays and Particles */
+    .ai-grad{position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,.25), transparent),
+      radial-gradient(800px 400px at 90% 20%, rgba(34,211,238,.2), transparent),
+      radial-gradient(1000px 500px at 50% 100%, rgba(251,113,133,.12), transparent),
+      linear-gradient(45deg, transparent 30%, rgba(34,211,238,.03) 50%, transparent 70%),
+      linear-gradient(-45deg, transparent 30%, rgba(124,58,237,.03) 50%, transparent 70%)}
+    .ai-grad::before{content:'';position:absolute;inset:0;background:
+      radial-gradient(2px 2px at 20px 30px, rgba(34,211,238,.8), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(124,58,237,.6), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(251,113,133,.7), transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(34,211,238,.5), transparent),
+      radial-gradient(2px 2px at 160px 30px, rgba(124,58,237,.4), transparent);
+      background-repeat:repeat;background-size:200px 100px;animation:particle-float 20s linear infinite;opacity:0.6}
+    @keyframes particle-float{0%{transform:translateY(0px)}100%{transform:translateY(-100px)}}
+    
+    .glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px)}
+    
+    /* Enhanced Hero Text with Glow */
+    .hero-title{text-shadow:0 0 20px rgba(34,211,238,.3), 0 2px 10px rgba(0,0,0,.5)}
+    .hero-cyan{text-shadow:0 0 15px rgba(34,211,238,.4), 0 2px 8px rgba(0,0,0,.3)}
+    .hero-violet{text-shadow:0 0 15px rgba(124,58,237,.4), 0 2px 8px rgba(0,0,0,.3)}
+    
+    /* Enhanced Button Animations */
+    .btn-primary{background:linear-gradient(135deg,var(--violet),var(--cyan));color:#0b1020;font-weight:700;transition:all 0.3s ease-in-out;position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center}
+    .btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan),var(--violet));opacity:0;transition:opacity 0.3s ease-in-out}
+    .btn-primary:hover{transform:scale(1.02);box-shadow:0 0 12px rgba(34,211,238,.25), 0 0 8px rgba(124,58,237,.2);filter:brightness(1.05)}
+    .btn-primary:hover::before{opacity:0.3}
+    .btn-primary span{position:relative;z-index:1}
+    
+    /* Navbar alignment fixes */
+    header nav a:not(.btn-primary) {
+      display: inline-flex;
+      align-items: center;
+      height: auto;
+      line-height: 1.5;
+      vertical-align: middle;
+    }
+    
+    header nav .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      margin: 0;
+      line-height: 1.5;
+    }
+    
+    .btn-secondary{background:transparent;color:#22d3ee;border:2px solid rgba(34,211,238,.3);transition:all 0.3s ease;position:relative;overflow:hidden}
+    .btn-secondary::before{content:'';position:absolute;inset:0;background:rgba(34,211,238,.1);opacity:0;transition:opacity 0.3s ease}
+    .btn-secondary:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(34,211,238,.3);border-color:rgba(34,211,238,.6)}
+    .btn-secondary:hover::before{opacity:1}
+    .btn-secondary span{position:relative;z-index:1}
+    .label{position:absolute;left:16px;bottom:16px;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+    .sub{display:block;font-size:12px;color:#94a3b8}
+
+    /* Premium Blue Diamond Showcase */
+    .premium-diamond-showcase {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 350px;
+      background: radial-gradient(circle at center, rgba(34,211,238,.1) 0%, transparent 70%);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    
+    .diamond-glow-ring {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 2px solid rgba(34,211,238,.6);
+      border-radius: 50%;
+      animation: glow-rotate 8s linear infinite;
+      box-shadow: 0 0 30px rgba(34,211,238,.4);
+    }
+    
+    .diamond-rotation-container {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      animation: gentle-float 6s ease-in-out infinite;
+    }
+    
+    .premium-diamond-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 15px;
+      filter: brightness(1.1) contrast(1.2) saturate(1.3);
+      animation: diamond-shimmer 4s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(34,211,238,.3);
+      transition: all 0.3s ease;
+    }
+    
+    .premium-diamond-image:hover {
+      transform: scale(1.05);
+      filter: brightness(1.3) contrast(1.4) saturate(1.5);
+      box-shadow: 0 0 60px rgba(34,211,238,.5);
+    }
+    
+    .sparkle-effects {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, rgba(255,255,255,.9) 0%, rgba(34,211,238,.8) 70%);
+      border-radius: 50%;
+      animation: sparkle-twinkle 3s ease-in-out infinite;
+      box-shadow: 0 0 15px rgba(34,211,238,.8);
+    }
+    
+    .sparkle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+    .sparkle-2 { top: 30%; right: 20%; animation-delay: 0.5s; }
+    .sparkle-3 { bottom: 25%; left: 25%; animation-delay: 1s; }
+    .sparkle-4 { bottom: 35%; right: 15%; animation-delay: 1.5s; }
+    .sparkle-5 { top: 50%; left: 10%; animation-delay: 2s; }
+    .sparkle-6 { top: 60%; right: 10%; animation-delay: 2.5s; }
+    
+    .ai-analysis-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.7);
+      padding: 8px 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(34,211,238,.3);
+    }
+    
+    .analysis-text {
+      color: #22d3ee;
+      font-family: 'Orbitron', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: text-pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes glow-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes gentle-float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+    }
+    
+    @keyframes diamond-shimmer {
+      0%, 100% { filter: brightness(1.1) contrast(1.2) saturate(1.3); }
+      50% { filter: brightness(1.4) contrast(1.3) saturate(1.5); }
+    }
+    
+    @keyframes sparkle-twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    
+    @keyframes text-pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+    
+    /* Popular Cuts Slider styles (luxury AI) */
+    .cuts-title{font-family:Orbitron,ui-sans-serif;letter-spacing:.08em}
+    .cuts-underline{display:inline-block;width:140px;height:3px;background:linear-gradient(90deg,rgba(0,153,255,0) 0%,rgba(0,153,255,.9) 50%,rgba(0,153,255,0) 100%);box-shadow:0 0 12px rgba(0,153,255,.55);border-radius:2px}
+    .popular-cuts-section{padding-top:80px;padding-bottom:80px;margin-top:40px;position:relative;overflow:visible}
+    @media (max-width: 768px){
+      .popular-cuts-section{padding-top:60px;padding-bottom:60px;margin-top:30px}
+      .popularCutsSwiper{padding-left:50px;padding-right:50px;padding-top:20px;padding-bottom:20px}
+    }
+    .slider-spotlight{position:relative;overflow:visible;padding-top:20px;padding-bottom:20px}
+    .slider-spotlight:before{content:"";position:absolute;inset:-20px -10px -20px -10px;background:radial-gradient(60% 40% at 50% 10%,rgba(0,140,255,.15),transparent 60%),radial-gradient(50% 30% at 20% 30%,rgba(124,58,237,.08),transparent 60%),radial-gradient(50% 30% at 80% 30%,rgba(34,211,238,.08),transparent 60%);filter:blur(20px);pointer-events:none;z-index:0}
+    .popularCutsSwiper{position:relative;z-index:1;padding-left:60px;padding-right:60px;padding-top:30px;padding-bottom:30px;overflow:visible}
+    .popularCutsSwiper .swiper-wrapper{align-items:stretch;overflow:visible}
+    .popularCutsSwiper .swiper-slide{display:flex;height:auto;overflow:visible;min-height:auto;padding:10px}
+    /* Base, consistent card sizing */
+    .cut-card{background:linear-gradient(180deg,rgba(18,22,35,.72),rgba(8,12,22,.72));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(0,153,255,.14);border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:transform .36s ease-in-out, box-shadow .36s ease-in-out, border-color .36s ease-in-out, opacity .36s ease-in-out;position:relative;display:flex;flex-direction:column;min-height:100%;height:auto}
+    .cut-card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.06),transparent 40%);pointer-events:none}
+    .cut-card:hover{transform:translateY(-6px) scale(1.03);border-color:rgba(0,153,255,.5);box-shadow:0 0 20px rgba(0,255,255,0.3), 0 0 0 2px rgba(0,153,255,.18),0 18px 44px rgba(0,153,255,.15);z-index:10}
+    .cut-card:focus{outline:none;box-shadow:0 0 20px rgba(0,255,255,0.3), 0 0 0 2px rgba(0,153,255,.18),0 18px 44px rgba(0,153,255,.15)}
+    .popularCutsSwiper .swiper-slide{transition:transform .36s ease-in-out}
+    /* Inactive cards: slightly smaller and softer */
+    .popularCutsSwiper .swiper-slide .cut-card{transform:scale(.965);opacity:.95}
+    .popularCutsSwiper .swiper-slide:not(.swiper-slide-active) .cut-img{filter:saturate(1.02) contrast(1.04) blur(.2px) drop-shadow(0 8px 18px rgba(0,175,255,.12))}
+    /* Active card spotlight */
+    .popularCutsSwiper .swiper-slide-active .cut-card{transform:translateY(-2px) scale(1.05);opacity:1;border-color:rgba(0,175,255,.65);box-shadow:0 0 0 2px rgba(0,175,255,.22),0 26px 70px rgba(0,175,255,.18);z-index:5}
+    .cut-img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.08) drop-shadow(0 12px 24px rgba(0,175,255,.15));transition:transform .4s ease-in-out, filter .36s ease-in-out;display:block}
+    .cut-card:hover .cut-img{transform:scale(1.05);filter:saturate(1.12) contrast(1.12)}
+    .cut-reflection{display:block;width:86%;margin:6px auto 0 auto;transform:scaleY(-1);opacity:.22;filter:blur(1px) saturate(1.05) contrast(1.05);mask-image:linear-gradient(to bottom, rgba(255,255,255,.7), rgba(255,255,255,0));-webkit-mask-image:linear-gradient(to bottom, rgba(255,255,255,.7), rgba(255,255,255,0))}
+    /* Reflection only on active */
+    .popularCutsSwiper .swiper-slide:not(.swiper-slide-active) .cut-reflection{display:none}
+    .popularCutsSwiper .swiper-slide-active .cut-card::after{content:"";position:absolute;left:50%;top:-8%;transform:translateX(-50%);width:130%;height:65%;background:radial-gradient(ellipse at center, rgba(255,255,255,.14) 0%, rgba(255,255,255,.06) 35%, rgba(255,255,255,0) 70%);filter:blur(10px);pointer-events:none}
+    .cut-info{position:absolute;left:18px;bottom:16px;right:18px;padding:0;background:transparent;text-align:left}
+    .cut-info h3{font-family:Poppins,ui-sans-serif;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+    .cut-info p{color:#c9d6e8;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+    .ripple{position:absolute;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;width:12px;height:12px;background:radial-gradient(circle,rgba(0,167,255,.55) 0%,rgba(0,167,255,.35) 40%,rgba(0,167,255,0) 70%);animation:ripple-animate .7s ease-out forwards}
+    @keyframes ripple-animate{0%{opacity:.9}100%{opacity:0;width:240px;height:240px}}
+    /* Controls & Pagination placement */
+    .popularCutsSwiper .swiper-button-prev,
+    .popularCutsSwiper .swiper-button-next{color:#9bd6ff;width:44px;height:44px;border-radius:50%;background:rgba(0,153,255,.15);box-shadow:0 0 0 2px rgba(0,153,255,.2), 0 0 15px rgba(0,255,255,.3);margin-top:-22px;top:50%;transition:all 0.3s ease}
+    .popularCutsSwiper .swiper-button-prev{left:0px;z-index:20}
+    .popularCutsSwiper .swiper-button-next{right:0px;z-index:20}
+    .popularCutsSwiper .swiper-button-prev:hover,
+    .popularCutsSwiper .swiper-button-next:hover{transform:scale(1.08);background:rgba(0,153,255,.25);box-shadow:0 0 0 2px rgba(0,153,255,.3), 0 0 20px rgba(0,255,255,.4)}
+    .popularCutsSwiper .swiper-pagination{position:relative;margin-top:12px}
+    .popularCutsSwiper .swiper-pagination-bullet{background:rgba(155,214,255,.6);opacity:1}
+    .popularCutsSwiper .swiper-pagination-bullet-active{background:#00a7ff;box-shadow:0 0 10px rgba(0,167,255,.6)}
+
+    /* Four C's Cards */
+    .fourcs-wrap{background:transparent}
+    .fourcs-title{font-family:Orbitron,ui-sans-serif;letter-spacing:.06em}
+    .title-underline{display:inline-block;width:150px;height:3px;background:linear-gradient(90deg,rgba(0,153,255,0) 0%,rgba(0,153,255,.9) 50%,rgba(0,153,255,0) 100%);box-shadow:0 0 12px rgba(0,153,255,.55);border-radius:2px}
+    .four-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+    @media (max-width: 1024px){.four-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width: 640px){.four-grid{grid-template-columns:1fr}}
+    .four-card{position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(180deg,rgba(14,18,34,.85),rgba(12,16,30,.9));border:1px solid rgba(0,153,255,.12);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .32s ease-in-out, box-shadow .32s ease-in-out, border-color .32s ease-in-out}
+    .four-card:hover{transform:translateY(-4px) scale(1.02);border-color:rgba(0,153,255,.45);box-shadow:0 0 0 2px rgba(0,153,255,.12),0 14px 36px rgba(0,153,255,.12)}
+    .four-media{aspect-ratio:16/9;width:100%;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,rgba(0,153,255,.08) 0%,rgba(0,0,0,0) 70%)}
+    .four-img{width:100%;height:100%;object-fit:contain;mix-blend:screen;filter:drop-shadow(0 8px 24px rgba(0,153,255,.15));transition:transform .36s ease-in-out}
+    .four-card:hover .four-img{transform:scale(1.03)}
+    .four-body{padding:16px 18px 18px 18px}
+    .four-heading{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .four-heading h3{font-family:Orbitron,ui-sans-serif;font-weight:700}
+    .four-desc{margin-top:6px;color:#8fbbe0;font-size:14px}
+    .grad-underline{display:inline-block;width:110px;height:3px;margin-top:8px;background:linear-gradient(90deg,rgba(0,167,255,0) 0%,rgba(0,167,255,.9) 50%,rgba(0,167,255,0) 100%);box-shadow:0 0 10px rgba(0,167,255,.5);border-radius:2px}
+    .four-list{margin-top:12px;color:#c5d7e8;font-size:14px}
+    .four-list li{margin:6px 0}
+    .fade-up{animation:fadeUp .6s ease-out both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    
+    /* Unified Premium Form Field Styling - All inputs and selects identical */
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    select.glass,
+    input.glass {
+      background: linear-gradient(180deg, rgba(18,22,35,.95), rgba(8,12,22,.95)) !important;
+      color: #e2e8f0 !important;
+      border: 1px solid rgba(0,153,255,.3) !important;
+      border-radius: 8px !important;
+      padding: 10px 12px !important;
+      min-height: 42px !important;
+      height: auto !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 1px rgba(0,153,255,.1), 0 4px 12px rgba(0,0,0,.3) !important;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: 1.5;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    /* Placeholder styling - soft light blue */
+    input::placeholder,
+    input::-webkit-input-placeholder,
+    input::-moz-placeholder,
+    input:-ms-input-placeholder {
+      color: rgba(155,214,255,.7) !important;
+      opacity: 1;
+    }
+    
+    /* Hover state for all form fields */
+    input[type="text"]:hover,
+    input[type="number"]:hover,
+    input[type="email"]:hover,
+    input[type="tel"]:hover,
+    select:hover,
+    input.glass:hover,
+    select.glass:hover {
+      border-color: rgba(0,153,255,.5) !important;
+      box-shadow: 0 0 0 1px rgba(0,153,255,.3), 0 0 15px rgba(0,255,255,.2), 0 4px 12px rgba(0,0,0,.3) !important;
+      background: linear-gradient(180deg, rgba(22,28,45,.95), rgba(12,18,28,.95)) !important;
+    }
+    
+    /* Focus state for all form fields - stronger blue glow */
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus,
+    input.glass:focus,
+    select.glass:focus {
+      outline: none !important;
+      border-color: rgba(0,175,255,.65) !important;
+      box-shadow: 0 0 0 2px rgba(0,175,255,.22), 0 0 20px rgba(0,255,255,.3), 0 4px 12px rgba(0,0,0,.3) !important;
+      background: linear-gradient(180deg, rgba(22,28,45,.95), rgba(12,18,28,.95)) !important;
+    }
+    
+    /* Active state for selects */
+    select:active {
+      background: linear-gradient(180deg, rgba(12,18,28,.95), rgba(8,12,22,.95)) !important;
+    }
+    
+    /* Disabled state - same background, reduced opacity */
+    input:disabled,
+    select:disabled {
+      opacity: 0.5 !important;
+      cursor: not-allowed !important;
+      background: linear-gradient(180deg, rgba(18,22,35,.95), rgba(8,12,22,.95)) !important;
+    }
+    
+    /* Number input - Hide default spinners completely */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
+      display: none;
+    }
+    
+    /* Firefox number input styling */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+    
+    /* Custom subtle spinner controls for number inputs */
+    .number-input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    
+    .number-input-wrapper input[type="number"] {
+      padding-right: 40px !important;
+    }
+    
+    .number-spinner-controls {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      width: 20px;
+      height: 32px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
+    
+    .number-input-wrapper:hover .number-spinner-controls,
+    .number-input-wrapper:focus-within .number-spinner-controls {
+      opacity: 1;
+    }
+    
+    .number-spinner-btn {
+      width: 100%;
+      height: 14px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: all;
+      transition: all 0.2s ease;
+      padding: 0;
+      border-radius: 2px;
+    }
+    
+    .number-spinner-btn:hover {
+      background: rgba(0,153,255,.1);
+    }
+    
+    .number-spinner-btn:active {
+      background: rgba(0,153,255,.15);
+      transform: scale(0.95);
+    }
+    
+    .number-spinner-btn svg {
+      width: 10px;
+      height: 10px;
+      stroke: rgba(155,214,255,.7);
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.2s ease;
+    }
+    
+    .number-spinner-btn:hover svg {
+      stroke: rgba(34,211,238,1);
+    }
+    
+    /* Select-specific styling */
+    select,
+    select.glass {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+    }
+    
+    /* Option elements styling */
+    option {
+      background: linear-gradient(180deg, rgba(18,22,35,.98), rgba(8,12,22,.98)) !important;
+      color: #e2e8f0 !important;
+      padding: 12px 16px !important;
+      border: none !important;
+    }
+    
+    option:hover {
+      background: rgba(0,153,255,.2) !important;
+      color: #22d3ee !important;
+    }
+    
+    option:checked,
+    option:focus {
+      background: linear-gradient(135deg, rgba(0,153,255,.3), rgba(0,175,255,.2)) !important;
+      color: #22d3ee !important;
+      font-weight: 600;
+    }
+    
+    /* Custom dropdown arrow */
+    select::-ms-expand {
+      display: none;
+    }
+    
+    /* Custom Dropdown Component - Replaces native select */
+    .custom-dropdown {
+      position: relative;
+      width: 100%;
+    }
+    
+    .custom-dropdown-button {
+      background: linear-gradient(180deg, rgba(18,22,35,.95), rgba(8,12,22,.95)) !important;
+      color: #e2e8f0 !important;
+      border: 1px solid rgba(0,153,255,.3) !important;
+      border-radius: 8px !important;
+      padding: 10px 36px 10px 12px !important;
+      min-height: 42px !important;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 1px rgba(0,153,255,.1), 0 4px 12px rgba(0,0,0,.3) !important;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: 1.5;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .custom-dropdown-button::after {
+      content: '';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2322d3ee' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+    
+    .custom-dropdown-button:hover {
+      border-color: rgba(0,153,255,.5) !important;
+      box-shadow: 0 0 0 1px rgba(0,153,255,.3), 0 0 15px rgba(0,255,255,.2), 0 4px 12px rgba(0,0,0,.3) !important;
+      background: linear-gradient(180deg, rgba(22,28,45,.95), rgba(12,18,28,.95)) !important;
+    }
+    
+    .custom-dropdown-button:focus {
+      outline: none !important;
+      border-color: rgba(0,175,255,.65) !important;
+      box-shadow: 0 0 0 2px rgba(0,175,255,.22), 0 0 20px rgba(0,255,255,.3), 0 4px 12px rgba(0,0,0,.3) !important;
+      background: linear-gradient(180deg, rgba(22,28,45,.95), rgba(12,18,28,.95)) !important;
+    }
+    
+    .custom-dropdown-button.placeholder {
+      color: rgba(155,214,255,.7) !important;
+    }
+    
+    .custom-dropdown-button.open::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+    
+    .custom-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, rgba(18,22,35,.98), rgba(8,12,22,.98)) !important;
+      border: 1px solid rgba(0,153,255,.4) !important;
+      border-radius: 8px !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      box-shadow: 0 0 0 1px rgba(0,153,255,.2), 0 8px 24px rgba(0,0,0,.5), 0 0 20px rgba(0,255,255,.15) !important;
+      z-index: 9999;
+      max-height: 300px;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      margin: 0;
+      padding: 4px;
+      list-style: none;
+    }
+    
+    .custom-dropdown-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .custom-dropdown-item {
+      padding: 10px 12px;
+      color: #e2e8f0 !important;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      margin: 2px 0;
+    }
+    
+    .custom-dropdown-item:hover {
+      background: rgba(0,153,255,.2) !important;
+      color: #22d3ee !important;
+      box-shadow: 0 0 10px rgba(0,255,255,.1);
+    }
+    
+    .custom-dropdown-item.selected {
+      background: linear-gradient(135deg, rgba(0,153,255,.3), rgba(0,175,255,.2)) !important;
+      color: #22d3ee !important;
+      font-weight: 600;
+      box-shadow: 0 0 15px rgba(0,255,255,.2);
+    }
+    
+    .custom-dropdown-item.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      color: rgba(155,214,255,.5) !important;
+    }
+    
+    .custom-dropdown-item.disabled:hover {
+      background: transparent !important;
+      color: rgba(155,214,255,.5) !important;
+    }
+    
+    /* Hidden input for form submission */
+    .custom-dropdown input[type="hidden"] {
+      display: none;
+    }
+    
+    /* Required field validation styling */
+    .custom-dropdown-button.invalid {
+      border-color: rgba(251,113,133,.5) !important;
+      box-shadow: 0 0 0 1px rgba(251,113,133,.2), 0 4px 12px rgba(0,0,0,.3) !important;
+    }
+    
+    .custom-dropdown-button.invalid:focus {
+      border-color: rgba(251,113,133,.7) !important;
+      box-shadow: 0 0 0 2px rgba(251,113,133,.3), 0 0 20px rgba(251,113,133,.2), 0 4px 12px rgba(0,0,0,.3) !important;
+    }
+    
+    /* Scrollbar styling for dropdown menu */
+    .custom-dropdown-menu::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .custom-dropdown-menu::-webkit-scrollbar-track {
+      background: rgba(8,12,22,.5);
+      border-radius: 4px;
+    }
+    
+    .custom-dropdown-menu::-webkit-scrollbar-thumb {
+      background: rgba(0,153,255,.4);
+      border-radius: 4px;
+    }
+    
+    .custom-dropdown-menu::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,153,255,.6);
+    }
+    
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+      .diamond-container{height:300px}
+      .diamond-animated{width:240px;height:240px}
+      .hero-title{font-size:2rem;line-height:1.2}
+      .btn-primary, .btn-secondary{font-size:14px;padding:12px 20px}
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <header class="fixed top-0 inset-x-0 z-40 backdrop-blur bg-slate-900/40">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a class="flex items-center gap-2" href="#"><img src="/assets/img/diamond.png" class="h-7 w-7"/><span class="font-[Orbitron] tracking-widest">GemPricer AI</span></a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#features" class="hover:text-cyan-300 leading-none py-2">Features</a>
+        <a href="#prediction" class="hover:text-cyan-300 leading-none py-2">Predictor</a>
+        <a href="#faq" class="hover:text-cyan-300 leading-none py-2">FAQ</a>
+        <a href="#contact" class="hover:text-cyan-300 leading-none py-2">Contact</a>
+        <a href="#prediction" class="btn-primary px-4 py-2 rounded-md leading-none h-auto">Try Prediction</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="pt-28 pb-16 relative">
+    <div class="ai-grad pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center relative">
+      <div data-aos="fade-right" class="py-8 lg:py-12">
+        <h1 class="hero-title font-[Orbitron] text-4xl sm:text-5xl leading-tight">Revolutionizing <span class="hero-cyan text-cyan-300">Diamond</span> Valuation with <span class="hero-violet text-violet-400">AI</span></h1>
+        <p class="mt-4 text-slate-300">Accurate, real-time price predictions powered by ML and your diamond's 4Cs.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#prediction" class="btn-primary px-5 py-3 rounded-lg"><span>Try Now</span></a>
+          <a href="#features" class="btn-secondary px-5 py-3 rounded-lg"><span>Learn More</span></a>
+        </div>
+      </div>
+      <div class="glass p-6 rounded-xl relative overflow-hidden" data-aos="fade-left">
+        <!-- Premium Blue Diamond Display -->
+        <div class="premium-diamond-showcase">
+          <div class="diamond-glow-ring"></div>
+          <div class="diamond-rotation-container">
+            <img src="/assets/img/Image.png" alt="AI Diamond Analysis" class="premium-diamond-image" />
+          </div>
+          <div class="sparkle-effects">
+            <div class="sparkle sparkle-1"></div>
+            <div class="sparkle sparkle-2"></div>
+            <div class="sparkle sparkle-3"></div>
+            <div class="sparkle sparkle-4"></div>
+            <div class="sparkle sparkle-5"></div>
+            <div class="sparkle sparkle-6"></div>
+          </div>
+          <div class="ai-analysis-overlay">
+            <div class="analysis-text">AI Analyzing...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-14">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <img src="/assets/img/Image 2.png" class="rounded-xl shadow-xl" data-aos="zoom-in" />
+      <div data-aos="fade-up">
+        <h2 class="font-[Orbitron] text-2xl">About GemPricer AI</h2>
+        <p class="mt-3 text-slate-300">GemPricer AI is an advanced model for accurate diamond and gemstone price prediction.</p>
+        <div class="grid sm:grid-cols-2 gap-4 mt-6">
+          <div class="glass p-4 rounded-lg">
+            <div class="text-2xl"><i data-lucide="shield-check"></i></div>
+            <h3 class="mt-2 font-semibold">Trusted Quality</h3>
+            <p class="text-slate-300 text-sm">Backed by AI and data-driven analysis.</p>
+          </div>
+          <div class="glass p-4 rounded-lg">
+            <div class="text-2xl"><i data-lucide="gem"></i></div>
+            <h3 class="mt-2 font-semibold">Value for Money</h3>
+            <p class="text-slate-300 text-sm">Instant insights for fair pricing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 border-y border-white/10 mb-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center text-sm text-slate-400">Trusted by jewelers & customers</div>
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center opacity-80">
+        <img src="/assets/img/clients/client-1.png" class="h-8 mx-auto grayscale hover:grayscale-0 transition" alt="logo"/>
+        <img src="/assets/img/clients/client-2.png" class="h-8 mx-auto grayscale hover:grayscale-0 transition" alt="logo"/>
+        <img src="/assets/img/clients/client-3.png" class="h-8 mx-auto grayscale hover:grayscale-0 transition" alt="logo"/>
+        <img src="/assets/img/clients/client-4.png" class="h-8 mx-auto grayscale hover:grayscale-0 transition" alt="logo"/>
+        <img src="/assets/img/clients/client-5.png" class="h-8 mx-auto grayscale hover:grayscale-0 transition" alt="logo"/>
+        <img src="/assets/img/clients/client-6.png" class="h-8 mx-auto grayscale hover:grayscale-0 transition" alt="logo"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Cuts Slider -->
+  <section id="popular-cuts" class="popular-cuts-section">
+    <div class="max-w-7xl mx-auto px-6" data-aos="fade-up" style="overflow:visible">
+      <div class="text-center mb-16">
+        <h2 class="cuts-title text-3xl">Popular Cuts</h2>
+        <div class="mt-2"><span class="cuts-underline"></span></div>
+      </div>
+
+      <div class="slider-spotlight swiper popularCutsSwiper">
+        <div class="swiper-wrapper">
+          <!-- Slides: use available images, repeated as needed -->
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/round-brilliant.png" alt="Round Brilliant" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Round Brilliant</h3>
+                <p class="text-slate-300 text-sm">Classic and sparkly brilliance.</p>
+              </div>
+              <!-- reflection -->
+              <img src="/assets/img/diamond-cuts/round-brilliant.png" alt="Round Brilliant reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/princess.png" alt="Princess" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Princess</h3>
+                <p class="text-slate-300 text-sm">Modern, sharp and elegant.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/princess.png" alt="Princess reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/emerald.png" alt="Emerald" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Emerald</h3>
+                <p class="text-slate-300 text-sm">Step-cut, hall-of-mirrors glow.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/emerald.png" alt="Emerald reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/cushion.png" alt="Cushion" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Cushion</h3>
+                <p class="text-slate-300 text-sm">Soft corners, vintage charm.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/cushion.png" alt="Cushion reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/oval.png" alt="Oval" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Oval</h3>
+                <p class="text-slate-300 text-sm">Elongated, brilliant sparkle.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/oval.png" alt="Oval reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/pear.png" alt="Pear" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Pear</h3>
+                <p class="text-slate-300 text-sm">Teardrop elegance.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/pear.png" alt="Pear reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/marquise.png" alt="Marquise" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Marquise</h3>
+                <p class="text-slate-300 text-sm">Striking elongated points.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/marquise.png" alt="Marquise reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/heart.png" alt="Heart" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Heart</h3>
+                <p class="text-slate-300 text-sm">Romantic signature shape.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/heart.png" alt="Heart reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/asscher.png" alt="Asscher" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Asscher</h3>
+                <p class="text-slate-300 text-sm">Vintage square step-cut.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/asscher.png" alt="Asscher reflection" class="cut-reflection">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="cut-card">
+              <div class="aspect-[16/9] w-full overflow-hidden">
+                <img src="/assets/img/diamond-cuts/radiant.png" alt="Radiant" class="cut-img">
+              </div>
+              <div class="cut-info p-4 text-center">
+                <h3 class="text-lg">Radiant</h3>
+                <p class="text-slate-300 text-sm">Brilliant facets, clipped corners.</p>
+              </div>
+              <img src="/assets/img/diamond-cuts/radiant.png" alt="Radiant reflection" class="cut-reflection">
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fourcs" class="py-14 fourcs-wrap">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center">
+        <h2 class="fourcs-title text-3xl">The 4Cs of Diamonds</h2>
+        <div class="mt-2"><span class="title-underline"></span></div>
+      </div>
+
+      <div class="four-grid mt-8">
+        <!-- Cut Card -->
+        <div class="four-card fade-up">
+          <div class="four-media">
+            <img src="/assets/img/4C's/Cut.png" alt="Cut" class="four-img" />
+          </div>
+          <div class="four-body">
+            <div class="four-heading">
+              <h3 class="text-2xl">Cut</h3>
+              <span class="grad-underline"></span>
+              <div class="four-desc">Precision and artistry of the diamond’s shape.</div>
+            </div>
+            <ul class="four-list list-disc list-inside">
+              <li><b>Round Brilliant:</b> Classic and highly brilliant.</li>
+              <li><b>Princess:</b> Square-shaped with modern elegance.</li>
+              <li><b>Cushion:</b> Soft, rounded vintage style.</li>
+              <li><b>Emerald:</b> Hall-of-mirrors effect.</li>
+              <li><b>Oval:</b> Elongated brilliance.</li>
+              <li><b>Pear:</b> Teardrop-shaped elegance.</li>
+              <li><b>Marquise:</b> Striking football shape.</li>
+              <li><b>Heart:</b> Romantic and symbolic.</li>
+              <li><b>Asscher:</b> Vintage square step-cut.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Clarity Card -->
+        <div class="four-card fade-up" style="animation-delay:.06s">
+          <div class="four-media">
+            <img src="/assets/img/4C's/Clarity.jpg" alt="Clarity" class="four-img" />
+          </div>
+          <div class="four-body">
+            <div class="four-heading">
+              <h3 class="text-2xl">Clarity</h3>
+              <span class="grad-underline"></span>
+              <div class="four-desc">Presence of inclusions or blemishes.</div>
+            </div>
+            <ul class="four-list list-disc list-inside">
+              <li><b>FL</b>: Flawless under 10x.</li>
+              <li><b>IF</b>: Internally Flawless, minor surface blemishes.</li>
+              <li><b>VVS1/VVS2</b>: Minute inclusions.</li>
+              <li><b>VS1/VS2</b>: Small inclusions.</li>
+              <li><b>SI1/SI2</b>: Noticeable under magnification.</li>
+              <li><b>I1–I3</b>: Visible inclusions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Carat Card -->
+        <div class="four-card fade-up" style="animation-delay:.12s">
+          <div class="four-media">
+            <img src="/assets/img/4C's/Carat.png" alt="Carat" class="four-img" />
+          </div>
+          <div class="four-body">
+            <div class="four-heading">
+              <h3 class="text-2xl">Carat</h3>
+              <span class="grad-underline"></span>
+              <div class="four-desc">Weight that heavily affects value.</div>
+            </div>
+            <ul class="four-list list-disc list-inside">
+              <li><b>Higher Carat</b>: Larger, heavier diamond.</li>
+              <li><b>Value Impact</b>: Key factor in pricing.</li>
+              <li><b>Appearance</b>: More striking presence.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Color Card -->
+        <div class="four-card fade-up" style="animation-delay:.18s">
+          <div class="four-media">
+            <img src="/assets/img/4C's/Color.jpg" alt="Color" class="four-img" />
+          </div>
+          <div class="four-body">
+            <div class="four-heading">
+              <h3 class="text-2xl">Color</h3>
+              <span class="grad-underline"></span>
+              <div class="four-desc">Natural tint; colorless is most valuable.</div>
+            </div>
+            <ul class="four-list list-disc list-inside">
+              <li><b>D–F</b>: Colorless, rare and valuable.</li>
+              <li><b>G–J</b>: Near colorless, excellent value.</li>
+              <li><b>K–M</b>: Faint tint.</li>
+              <li><b>N–Z</b>: Very light to light tints.</li>
+              <li><b>Fancy Colors</b>: Rare vivid hues.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="prediction" class="py-14">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-[Orbitron] text-2xl text-center">Diamond Price Predictor</h2>
+      <div class="glass rounded-2xl p-6 mt-6">
+        <form action="/predict" method="POST" id="prediction-form">
+          <div class="grid md:grid-cols-2 gap-4">
+            <!-- Carat -->
+            <div class="number-input-wrapper">
+              <input class="glass px-3 py-2 rounded" type="number" step="0.01" min="0.1" max="10" name="carat" placeholder="Carat *" required />
+              <div class="number-spinner-controls">
+                <button type="button" class="number-spinner-btn number-spinner-up" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 7 L5 4 L8 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="number-spinner-btn number-spinner-down" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3 L5 6 L8 3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Custom Dropdown: Cut -->
+            <div class="custom-dropdown">
+              <button type="button" class="custom-dropdown-button placeholder" data-dropdown="cut">Cut *</button>
+              <input type="hidden" name="cut" value="" required>
+              <ul class="custom-dropdown-menu" id="dropdown-cut">
+                <li class="custom-dropdown-item disabled" data-value="">Cut *</li>
+                <li class="custom-dropdown-item" data-value="Fair">Fair</li>
+                <li class="custom-dropdown-item" data-value="Good">Good</li>
+                <li class="custom-dropdown-item" data-value="Very Good">Very Good</li>
+                <li class="custom-dropdown-item" data-value="Premium">Premium</li>
+                <li class="custom-dropdown-item" data-value="Ideal">Ideal</li>
+              </ul>
+            </div>
+            
+            <!-- Custom Dropdown: Color -->
+            <div class="custom-dropdown">
+              <button type="button" class="custom-dropdown-button placeholder" data-dropdown="color">Color *</button>
+              <input type="hidden" name="color" value="" required>
+              <ul class="custom-dropdown-menu" id="dropdown-color">
+                <li class="custom-dropdown-item disabled" data-value="">Color *</li>
+                <li class="custom-dropdown-item" data-value="D">D</li>
+                <li class="custom-dropdown-item" data-value="E">E</li>
+                <li class="custom-dropdown-item" data-value="F">F</li>
+                <li class="custom-dropdown-item" data-value="G">G</li>
+                <li class="custom-dropdown-item" data-value="H">H</li>
+                <li class="custom-dropdown-item" data-value="I">I</li>
+                <li class="custom-dropdown-item" data-value="J">J</li>
+              </ul>
+            </div>
+            
+            <!-- Custom Dropdown: Clarity -->
+            <div class="custom-dropdown">
+              <button type="button" class="custom-dropdown-button placeholder" data-dropdown="clarity">Clarity *</button>
+              <input type="hidden" name="clarity" value="" required>
+              <ul class="custom-dropdown-menu" id="dropdown-clarity">
+                <li class="custom-dropdown-item disabled" data-value="">Clarity *</li>
+                <li class="custom-dropdown-item" data-value="I1">I1</li>
+                <li class="custom-dropdown-item" data-value="SI2">SI2</li>
+                <li class="custom-dropdown-item" data-value="SI1">SI1</li>
+                <li class="custom-dropdown-item" data-value="VS2">VS2</li>
+                <li class="custom-dropdown-item" data-value="VS1">VS1</li>
+                <li class="custom-dropdown-item" data-value="VVS2">VVS2</li>
+                <li class="custom-dropdown-item" data-value="VVS1">VVS1</li>
+                <li class="custom-dropdown-item" data-value="IF">IF</li>
+              </ul>
+            </div>
+            
+            <!-- Depth % -->
+            <div class="number-input-wrapper">
+              <input class="glass px-3 py-2 rounded" type="number" step="0.01" min="0" max="100" name="depth" placeholder="Depth % *" required />
+              <div class="number-spinner-controls">
+                <button type="button" class="number-spinner-btn number-spinner-up" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 7 L5 4 L8 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="number-spinner-btn number-spinner-down" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3 L5 6 L8 3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Table % -->
+            <div class="number-input-wrapper">
+              <input class="glass px-3 py-2 rounded" type="number" step="0.1" min="0" max="100" name="table" placeholder="Table % *" required />
+              <div class="number-spinner-controls">
+                <button type="button" class="number-spinner-btn number-spinner-up" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 7 L5 4 L8 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="number-spinner-btn number-spinner-down" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3 L5 6 L8 3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Length (x) -->
+            <div class="number-input-wrapper">
+              <input class="glass px-3 py-2 rounded" type="number" step="0.01" min="0" name="x" placeholder="Length (x) *" required />
+              <div class="number-spinner-controls">
+                <button type="button" class="number-spinner-btn number-spinner-up" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 7 L5 4 L8 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="number-spinner-btn number-spinner-down" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3 L5 6 L8 3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Width (y) -->
+            <div class="number-input-wrapper">
+              <input class="glass px-3 py-2 rounded" type="number" step="0.01" min="0" name="y" placeholder="Width (y) *" required />
+              <div class="number-spinner-controls">
+                <button type="button" class="number-spinner-btn number-spinner-up" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 7 L5 4 L8 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="number-spinner-btn number-spinner-down" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3 L5 6 L8 3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Depth (z) - Centered in last row -->
+            <div class="number-input-wrapper md:col-span-2 md:max-w-md md:mx-auto">
+              <input class="glass px-3 py-2 rounded" type="number" step="0.01" min="0" name="z" placeholder="Depth (z) *" required />
+              <div class="number-spinner-controls">
+                <button type="button" class="number-spinner-btn number-spinner-up" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 7 L5 4 L8 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="number-spinner-btn number-spinner-down" tabindex="-1">
+                  <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3 L5 6 L8 3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button class="btn-primary px-6 py-3 rounded-lg" id="estimate-btn">Estimate Price</button>
+            <a href="#faq" class="text-slate-400 hover:text-cyan-300 text-sm">How is this calculated?</a>
+          </div>
+        </form>
+        <div id="live-result" class="mt-6 hidden glass rounded p-6 text-center">
+          <div class="text-slate-400 text-sm">Estimated Price</div>
+          <div id="live-amount" class="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-violet-400 to-pink-400 bg-clip-text text-transparent mt-1">$0.00</div>
+          <div class="mt-3 text-slate-400 text-xs">Based on your inputs and our ML model</div>
+          <div class="mt-4">
+            <a id="view-details" href="#" class="glass px-4 py-2 rounded border border-cyan-400/30 text-cyan-300">View detailed breakdown</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-14">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-[Orbitron] text-2xl text-center">Frequently Asked Questions</h2>
+      <div class="mt-6 space-y-3">
+        <details class="glass p-4 rounded"><summary class="cursor-pointer">What is this model for?</summary><div class="pt-2 text-slate-300">Predicts diamond price from 4Cs and dimensions.</div></details>
+        <details class="glass p-4 rounded"><summary class="cursor-pointer">What inputs do I need?</summary><div class="pt-2 text-slate-300">Provide carat, cut, color, clarity, depth, table, x, y, z.</div></details>
+        <details class="glass p-4 rounded"><summary class="cursor-pointer">How accurate is it?</summary><div class="pt-2 text-slate-300">Depends on data and metrics (MAE, R²).</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-slate-400 text-sm">
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/ozarakesh533" target="_blank" class="hover:text-cyan-300">GitHub</a>
+        <a href="https://www.linkedin.com/in/rakeshoza" target="_blank" class="hover:text-cyan-300">LinkedIn</a>
+        <a href="#" class="hover:text-cyan-300">Portfolio</a>
+      </div>
+      <div>© <span id="year"></span> Designed by Rakesh Oza</div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js?v=2"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if (window.lucide) { window.lucide.createIcons(); }
+
+    // Custom Dropdown Functionality
+    (function() {
+      const dropdowns = document.querySelectorAll('.custom-dropdown');
+      
+      function closeAllDropdowns() {
+        dropdowns.forEach(dropdown => {
+          const button = dropdown.querySelector('.custom-dropdown-button');
+          const menu = dropdown.querySelector('.custom-dropdown-menu');
+          if (button && menu) {
+            button.classList.remove('open');
+            menu.classList.remove('open');
+          }
+        });
+      }
+      
+      dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('.custom-dropdown-button');
+        const menu = dropdown.querySelector('.custom-dropdown-menu');
+        const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+        const items = menu.querySelectorAll('.custom-dropdown-item:not(.disabled)');
+        
+        if (!button || !menu || !hiddenInput) return;
+        
+        // Toggle dropdown on button click
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = menu.classList.contains('open');
+          closeAllDropdowns();
+          if (!isOpen) {
+            button.classList.add('open');
+            menu.classList.add('open');
+          }
+        });
+        
+        // Handle item selection
+        items.forEach(item => {
+          item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const value = item.getAttribute('data-value');
+            const text = item.textContent.trim();
+            
+            // Update button text
+            button.textContent = text;
+            button.classList.remove('placeholder');
+            
+            // Update hidden input
+            hiddenInput.value = value;
+            
+            // Update selected state
+            menu.querySelectorAll('.custom-dropdown-item').forEach(i => {
+              i.classList.remove('selected');
+            });
+            item.classList.add('selected');
+            
+            // Remove invalid styling if present
+            button.classList.remove('invalid');
+            button.style.borderColor = '';
+            
+            // Close dropdown
+            closeAllDropdowns();
+            
+            // Trigger change event for form validation
+            hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+            
+            // Validate form
+            if (hiddenInput.form) {
+              hiddenInput.form.checkValidity();
+            }
+          });
+        });
+      });
+      
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.custom-dropdown')) {
+          closeAllDropdowns();
+        }
+      });
+      
+      // Close dropdowns on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeAllDropdowns();
+        }
+      });
+      
+      // Keyboard navigation for dropdowns
+      dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('.custom-dropdown-button');
+        const menu = dropdown.querySelector('.custom-dropdown-menu');
+        const items = Array.from(menu.querySelectorAll('.custom-dropdown-item:not(.disabled)'));
+        
+        if (!button || !menu) return;
+        
+        button.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            button.click();
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (!menu.classList.contains('open')) {
+              button.click();
+            }
+            if (items.length > 0) {
+              items[0].focus();
+            }
+          }
+        });
+        
+        items.forEach((item, index) => {
+          item.setAttribute('tabindex', '0');
+          item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              item.click();
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              const next = items[index + 1] || items[0];
+              next.focus();
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              const prev = items[index - 1] || items[items.length - 1];
+              prev.focus();
+            } else if (e.key === 'Escape') {
+              e.preventDefault();
+              closeAllDropdowns();
+              button.focus();
+            }
+          });
+        });
+      });
+    })();
+
+    // Number Input Spinner Controls Functionality
+    (function() {
+      document.querySelectorAll('.number-spinner-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const wrapper = this.closest('.number-input-wrapper');
+          if (!wrapper) return;
+          
+          const input = wrapper.querySelector('input[type="number"]');
+          if (!input) return;
+          
+          const step = parseFloat(input.getAttribute('step')) || 1;
+          const min = input.hasAttribute('min') ? parseFloat(input.getAttribute('min')) : null;
+          const max = input.hasAttribute('max') ? parseFloat(input.getAttribute('max')) : null;
+          const currentValue = parseFloat(input.value) || 0;
+          
+          let newValue;
+          if (this.classList.contains('number-spinner-up')) {
+            newValue = currentValue + step;
+            if (max !== null && newValue > max) {
+              newValue = max;
+            }
+          } else {
+            newValue = currentValue - step;
+            if (min !== null && newValue < min) {
+              newValue = min;
+            }
+          }
+          
+          input.value = newValue;
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+      });
+    })();
+
+    // Live result via JSON + animated counter
+    const form = document.getElementById('prediction-form');
+    const panel = document.getElementById('live-result');
+    const amountEl = document.getElementById('live-amount');
+    const viewBtn = document.getElementById('view-details');
+    function animateCount(el, from, to, duration = 900) {
+      const start = performance.now();
+      function frame(now) {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = (1 - Math.cos(Math.PI * p)) / 2;
+        const val = from + (to - from) * eased;
+        el.textContent = `$${val.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    if (form) {
+      // Custom validation for dropdowns
+      form.addEventListener('submit', async (e) => {
+        // Validate custom dropdowns
+        const dropdowns = form.querySelectorAll('.custom-dropdown input[type="hidden"][required]');
+        let isValid = true;
+        dropdowns.forEach(input => {
+          if (!input.value || input.value === '') {
+            isValid = false;
+            const button = input.closest('.custom-dropdown')?.querySelector('.custom-dropdown-button');
+            if (button) {
+              button.classList.add('invalid');
+              button.style.borderColor = 'rgba(251,113,133,.5)';
+            }
+          }
+        });
+        
+        if (!isValid || !form.checkValidity()) {
+          e.preventDefault();
+          return;
+        }
+        
+        e.preventDefault();
+        const fd = new FormData(form);
+        const data = Object.fromEntries(fd.entries());
+        const res = await fetch('/predict', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (!res.ok) { form.submit(); return; }
+        const j = await res.json();
+        const price = Number(j.prediction || 0);
+        const current = Number((amountEl.textContent || '0').replace(/[^0-9.]/g, '')) || 0;
+        animateCount(amountEl, current, price, 900);
+        panel.classList.remove('hidden');
+        const params = new URLSearchParams(data);
+        params.set('prediction', price);
+        viewBtn.href = `/results?${params.toString()}`;
+      });
+    }
+    // Initialize Popular Cuts Swiper + ripple
+    const sliderEl = document.querySelector('.popularCutsSwiper');
+    if (sliderEl && window.Swiper) {
+      const pcSwiper = new Swiper('.popularCutsSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        speed: 800,
+        centeredSlides: true,
+        autoplay: { delay: 2400, disableOnInteraction: false },
+        navigation: { nextEl: '.popularCutsSwiper .swiper-button-next', prevEl: '.popularCutsSwiper .swiper-button-prev' },
+        pagination: { el: '.popularCutsSwiper .swiper-pagination', clickable: true },
+        effect: 'coverflow',
+        coverflowEffect: { rotate: 8, stretch: 0, depth: 140, modifier: 1, slideShadows: false },
+        centeredSlidesBounds: true,
+        breakpoints: { 768:{slidesPerView:2}, 992:{slidesPerView:3}, 1200:{slidesPerView:4} }
+      });
+    }
+    document.body.addEventListener('click', function(e){
+      const card = e.target.closest('.cut-card');
+      if(!card) return;
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left; const y = e.clientY - r.top;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple'; ripple.style.left = x+'px'; ripple.style.top = y+'px';
+      card.appendChild(ripple); setTimeout(()=>ripple.remove(), 800);
+    });
+  </script>
+</body>
+</html>
+

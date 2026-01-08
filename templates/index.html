@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>GemPricer AI</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets\img\diamond.png" rel="icon">
+  <link href="assets\img\diamond.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
+    rel="stylesheet">
+  <!-- Futuristic Fonts for Popular Cuts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <!--<link href="templates/assets/css/style.css" rel="stylesheet">-->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+
+        <h1 class="text-light"><a href="index.html"><img src="assets/img/diamond.png" alt="Image " class="img-fluid"
+              height="50px" width="40px" style="padding-right: 5px;"><span>GemPricer AI</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+          <!--<li><a class="nav-link scrollto" href="#team">4C's of Diamond</a></li>
+          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>-->
+
+          <li><a class="getstarted scrollto" href="#predictionForm">Let's Predict</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Welcome to GemPricer AI</h1>
+          <h2>We revolutionize diamond valuation with our AI-driven
+            predictions based on the <strong>4Cs</strong>:</h2>
+
+          <ul class="">
+            <li style="color: #6aa0b7;"><strong>Cut:</strong> The precision and artistry of the diamond’s shape.</li>
+            <li style="color: #6aa0b7;"><strong>Clarity:</strong> The absence of inclusions and imperfections.</li>
+            <li style="color: #6aa0b7;"><strong>Color:</strong> The whiteness or tint of the diamond.</li>
+            <li style="color: #6aa0b7;"><strong>Carat:</strong> The weight and size of the diamond.</li>
+          </ul>
+          <div>
+            <a href="#prediction-section" class="getstarted scrollto">Let's Predict</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="assets/img/Image.png" class="img-fluid animated" alt="Diamond Valuation">
+        </div>
+      </div>
+    </div>
+
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row justify-content-between">
+          <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
+            <img src="assets/img/Image 2.png" class="img-fluid" alt="" data-aos="zoom-in">
+          </div>
+          <div class="col-lg-6 pt-5 pt-lg-0">
+            <h3 data-aos="fade-up">GemPricer AI</h3>
+            <p data-aos="fade-up" data-aos-delay="100">
+              Gempricer-AI is an advanced AI model for accurate diamond and gemstone price prediction.
+            </p>
+            <div class="row">
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-check-circle-fill"></i>
+                <h4>Trusted Quality</h4>
+                <p>"Delivering unmatched value with data-driven analysis, Gempricer-AI guarantees fair and accurate pricing for all diamonds."</p>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-currency-rupee"></i>
+                <h4>Value for money</h4>
+                <p>Get the best value for your money with our high-quality, affordable products</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!--Description For Cut-->
+    <section id="cut" class="section" style="background-color: #0c012a; color: #ffffff; padding: 20px;">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Image Section -->
+          <div class="col-lg-6 order-1 order-lg-2 ">
+            <img src="assets/img/4C's/Cut.png" class="#" alt="Diamond Valuation" style="width: 80%; height: 20; margin-left: 20%;">
+          </div>
+          <!-- Text Section -->
+          <div class="col-lg-6 order-2 order-lg-1">
+            <h2 class="section-title" style="font-size: 3rem; font-weight: bold;">Cut</h2>
+            <p class="description" style="font-size: 1.2rem;">
+              The <b>Cut</b> of a diamond impacts its brilliance and sparkle. Here are the main types:
+            </p>
+            <ul class="features" style="font-size: 1.1rem;">
+              <li><strong>Round Brilliant:</strong> Classic and highly brilliant.</li>
+              <li><strong>Princess:</strong> Square-shaped with modern elegance.</li>
+              <li><strong>Cushion:</strong> Soft, rounded vintage style.</li>
+              <li><strong>Emerald:</strong> Rectangular with a hall-of-mirrors effect.</li>
+              <li><strong>Oval:</strong> Elongated brilliance.</li>
+              <li><strong>Pear:</strong> Teardrop-shaped elegance.</li>
+              <li><strong>Marquise:</strong> Striking football shape.</li>
+              <li><strong>Heart:</strong> Romantic and symbolic.</li>
+              <li><strong>Asscher:</strong> Vintage square step-cut.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--End of Description for Cut-->
+
+    <!-- ======= Popular Cuts Slider ======= -->
+    <section id="popular-cuts" class="cuts-section" style="background:#06041a;">
+      <div class="container" data-aos="fade-up">
+        <div class="cuts-title-wrap">
+          <h2 class="popular-cuts-title">Popular Cuts</h2>
+          <span class="popular-cuts-underline"></span>
+        </div>
+
+        <div class="swiper popularCutsSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Round Brilliant">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/round-brilliant.png" alt="Round Brilliant" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Round Brilliant</h3>
+                  <p>Classic and sparkly brilliance.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Princess">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/princess.png" alt="Princess" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Princess</h3>
+                  <p>Modern, sharp and elegant.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Emerald">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/emerald.png" alt="Emerald" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Emerald</h3>
+                  <p>Step-cut, hall-of-mirrors glow.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Cushion">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/cushion.png" alt="Cushion" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Cushion</h3>
+                  <p>Soft corners, vintage charm.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Oval">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/oval.png" alt="Oval" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Oval</h3>
+                  <p>Elongated, brilliant sparkle.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Pear">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/pear.png" alt="Pear" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Pear</h3>
+                  <p>Teardrop elegance.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Marquise">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/marquise.png" alt="Marquise" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Marquise</h3>
+                  <p>Striking, elongated points.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Heart">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/heart.png" alt="Heart" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Heart</h3>
+                  <p>Romantic signature shape.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Asscher">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/asscher.png" alt="Asscher" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Asscher</h3>
+                  <p>Vintage square step-cut.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="cut-card" data-cut="Radiant">
+                <div class="cut-image-wrap">
+                  <img src="assets/img/diamond-cuts/radiant.png" alt="Radiant" class="cut-image">
+                </div>
+                <div class="cut-info">
+                  <h3>Radiant</h3>
+                  <p>Brilliant facets with clipped corners.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+    <!-- End Popular Cuts Slider -->
+
+    <!--Clearity -->
+    <section id="clarity" class="section" style="color: #0c012a; padding: 20px;">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Image Section (Left side) -->
+          <div class="col-lg-6 order-1 order-lg-1 hero-img">
+            <img src="assets/img/4C's/Clarity.jpg" class="#" alt="Diamond Valuation" style="width: 80%; height: 60%; margin-right: 5px;">
+          </div>
+          <!-- Text Section (Right side) -->
+          <div class="col-lg-6 order-2 order-lg-2">
+            <h2 class="section-title" style="font-size: 3rem; font-weight: bold;">Clarity</h2>
+            <p class="description" style="font-size: 1.2rem;">
+              <strong>Clarity</strong> refers to the presence of imperfections, such as inclusions and blemishes, inside or on the surface of a diamond.
+            </p>
+            <ul class="features" style="font-size: 1.1rem;">
+              <li><strong>Flawless (FL):</strong> No visible inclusions or blemishes under 10x magnification.</li>
+              <li><strong>Internally Flawless (IF):</strong> No inclusions under 10x magnification, minor surface blemishes.</li>
+              <li><strong>Very, Very Slightly Included (VVS1 and VVS2):</strong> Minute inclusions, hard to detect even under magnification.</li>
+              <li><strong>Very Slightly Included (VS1 and VS2):</strong> Small inclusions visible under magnification but not to the naked eye.</li>
+              <li><strong>Slightly Included (SI1 and SI2):</strong> Inclusions visible under magnification and possibly to the naked eye.</li>
+              <li><strong>Included (I1, I2, and I3):</strong> Inclusions visible to the naked eye, may impact durability.</li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+<!--End of clearity -->   
+
+<!--Carat-->
+<!--Description For Carat-->
+<section id="carat" class="section" style="background-color: #0c012a; color: #ffffff; padding: 20px;">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Image Section -->
+      <div class="col-lg-6 order-1 order-lg-2">
+        <img src="assets/img/4C's/Carat.png" class="#" alt="Diamond Valuation" style="width: 80%; height: 20; margin-left: 20%;">
+      </div>
+      <!-- Text Section -->
+      <div class="col-lg-6 order-2 order-lg-1">
+        <h2 class="section-title" style="font-size: 3rem; font-weight: bold;">Carat</h2>
+        <p class="description" style="font-size: 1.2rem;">
+          The <b>Carat</b> of a diamond measures its weight and affects its value significantly. Here are the key considerations:
+        </p>
+        <ul class="features" style="font-size: 1.1rem;">
+          <li><strong>Higher Carat:</strong> Indicates a larger and heavier diamond.</li>
+          <li><strong>Impact on Value:</strong> Carat weight is a crucial factor in pricing.</li>
+          <li><strong>Visual Appearance:</strong> Larger carat weights offer a more striking presence.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End of Carat-->
+
+<!--Color-->
+<section id="color" class="section" style="color: #0c012a; padding: 20px;">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Image Section (Left side) -->
+      <div class="col-lg-6 order-1 order-lg-1 hero-img">
+        <img src="assets/img/4C's/Color.jpg" class="#" alt="Diamond Valuation" style="width: 80%; height: 60%; margin-right: 5px;">
+      </div>
+      <!-- Text Section (Right side) -->
+      <div class="col-lg-6 order-2 order-lg-2">
+        <h2 class="section-title" style="font-size: 3rem; font-weight: bold;">Color</h2>
+        <p class="description" style="font-size: 1.2rem;">
+          <strong>Color</strong> refers to the natural tint or hue of a diamond. Most diamonds have slight yellow or brown tints, but the most valuable ones are colorless.
+        </p>
+        <ul class="features" style="font-size: 1.1rem;">
+          <li><strong>Colorless (D-F):</strong> Completely colorless, rare, and highly valuable.</li>
+          <li><strong>Near Colorless (G-J):</strong> Slight tint visible only under magnification, excellent value.</li>
+          <li><strong>Faint (K-M):</strong> Noticeable warm tint visible to the naked eye.</li>
+          <li><strong>Very Light (N-R):</strong> Light yellow or brown tint, more noticeable in larger diamonds.</li>
+          <li><strong>Light (S-Z):</strong> Distinct yellow or brown tint, less desirable.</li>
+          <li><strong>Fancy Colors:</strong> Rare diamonds with strong colors like blue, pink, or green, highly prized for their uniqueness.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End of color-->
+
+    <!-- Form Section for prediction -->
+    <section id="prediction-section" class="py-5" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; margin: 2rem auto; max-width: 90%;">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Diamond Price Predictor</h2>
+          <p>Get an instant price estimate for your diamond</p>
+        </div>
+        
+        <!-- Prediction Result Container -->
+        <div id="prediction-result" class="mb-4" style="display: none;">
+          <!-- Results will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card shadow">
+              <div class="card-body p-4">
+                <form id="prediction-form" action="/predict" method="POST" class="needs-validation" novalidate>
+                  <div class="row g-3" id="predictionForm">
+                    <div class="col-md-6">
+                      <div class="form-group mb-3">
+                        <label for="carat" class="form-label">Carat Weight <span class="text-danger">*</span></label>
+                        <input type="number" step="0.01" min="0.1" max="10" class="form-control" id="carat" name="carat" 
+                               placeholder="e.g., 0.75" required>
+                        <div class="invalid-feedback">
+                          Please enter a valid carat weight (0.1-10).
+                        </div>
+                      </div>
+                      
+                      <div class="form-group mb-3">
+                        <label for="cut" class="form-label">Cut Quality <span class="text-danger">*</span></label>
+                        <select class="form-select" id="cut" name="cut" required>
+                          <option value="" disabled selected>Select cut quality</option>
+                          <option value="Fair">Fair</option>
+                          <option value="Good">Good</option>
+                          <option value="Very Good">Very Good</option>
+                          <option value="Premium">Premium</option>
+                          <option value="Ideal">Ideal</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select a cut quality.
+                        </div>
+                      </div>
+                      
+                      <div class="form-group mb-3">
+                        <label for="color" class="form-label">Color Grade <span class="text-danger">*</span></label>
+                        <select class="form-select" id="color" name="color" required>
+                          <option value="" disabled selected>Select color grade</option>
+                          <option value="D">D (Colorless)</option>
+                          <option value="E">E (Colorless)</option>
+                          <option value="F">F (Colorless)</option>
+                          <option value="G">G (Near Colorless)</option>
+                          <option value="H">H (Near Colorless)</option>
+                          <option value="I">I (Near Colorless)</option>
+                          <option value="J">J (Near Colorless)</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select a color grade.
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <div class="form-group mb-3">
+                        <label for="clarity" class="form-label">Clarity <span class="text-danger">*</span></label>
+                        <select class="form-select" id="clarity" name="clarity" required>
+                          <option value="" disabled selected>Select clarity</option>
+                          <option value="I1">I1 (Included 1)</option>
+                          <option value="SI2">SI2 (Slightly Included 2)</option>
+                          <option value="SI1">SI1 (Slightly Included 1)</option>
+                          <option value="VS2">VS2 (Very Slightly Included 2)</option>
+                          <option value="VS1">VS1 (Very Slightly Included 1)</option>
+                          <option value="VVS2">VVS2 (Very, Very Slightly Included 2)</option>
+                          <option value="VVS1">VVS1 (Very, Very Slightly Included 1)</option>
+                          <option value="IF">IF (Internally Flawless)</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select a clarity grade.
+                        </div>
+                      </div>
+                      
+                      <div class="row g-2">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="depth" class="form-label">Depth % <span class="text-danger">*</span></label>
+                            <input type="number" step="0.01" min="0" max="100" class="form-control" id="depth" 
+                                   name="depth" placeholder="e.g., 61.5" required>
+                            <div class="invalid-feedback">
+                              Please enter a valid depth percentage.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="table" class="form-label">Table % <span class="text-danger">*</span></label>
+                            <input type="number" step="0.1" min="0" max="100" class="form-control" id="table" 
+                                   name="table" placeholder="e.g., 55.0" required>
+                            <div class="invalid-feedback">
+                              Please enter a valid table percentage.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row g-2 mt-3">
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label for="x" class="form-label">Length (x) <span class="text-danger">*</span></label>
+                            <input type="number" step="0.01" min="0" class="form-control" id="x" 
+                                   name="x" placeholder="e.g., 5.01" required>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label for="y" class="form-label">Width (y) <span class="text-danger">*</span></label>
+                            <input type="number" step="0.01" min="0" class="form-control" id="y" 
+                                   name="y" placeholder="e.g., 5.01" required>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label for="z" class="form-label">Depth (z) <span class="text-danger">*</span></label>
+                            <input type="number" step="0.01" min="0" class="form-control" id="z" 
+                                   name="z" placeholder="e.g., 3.04" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                      <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" id="submit-spinner"></span>
+                      <span id="submit-text">Estimate Price</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            
+            <div class="text-center mt-3">
+              <small class="text-muted">
+                <i class="bi bi-info-circle"></i> This is an estimate based on current market data. 
+                For a certified appraisal, please consult a professional gemologist.
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>F.A.Q</h2>
+          <p>Frequently Asked Questions</p>
+        </div>
+
+        <ul class="faq-list" data-aos="fade-up" data-aos-delay="100">
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq1" class="collapsed question" >What is this model for?<i
+                class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                This model predicts the price of a diamond based on features like carat, cut, color, clarity, depth,
+                table, and dimensions (length, width, depth).
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What inputs do I need to provide?
+              <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                You need to provide details such as:
+              </p>
+              <p>
+              <ul>
+                <li>Carat: Weight of the diamond.</li>
+                <li>Cut: Quality of the cut (e.g., Ideal, Premium).</li>
+                <li>Color: Diamond's color grade (e.g., D, E, F).</li>
+                <li>Clarity: Level of inclusions (e.g., SI2, VS1).</li>
+                <li>Depth & Table percentages and Dimensions (Length, Width, Depth).</li>
+              </ul>
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">How accurate is the prediction?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                The model's accuracy depends on the training data and evaluation metrics. It typically achieves around X% (e.g., 90%) accuracy based on Mean Absolute Error (MAE) and R-squared metrics.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq4">What is this model for?<i
+                class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                This model predicts the price of a diamond based on features like carat, cut, color, clarity, depth,
+                table, and dimensions (length, width, depth).
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq5">What happens if I enter incorrect or incomplete data?<i
+                class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                The model requires all fields to be filled accurately. If incorrect or incomplete data is entered, the prediction may be inaccurate or the system might prompt you to correct the input.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq6">How does the model account for features like 'cut' and 'clarity'?<i
+                class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                This model predicts the price of a diamond based on features like carat, cut, color, clarity, depth,
+                table, and dimensions (length, width, depth).
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section><!-- End F.A.Q Section -->
+
+
+
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>Rakesh Oza</h3>
+              <p>
+                Chavannagar,Dhankawadi <br>
+                Pune 411043,<br>
+                Maharashtra<br><br>
+                <strong>Phone:</strong>7821018766<br>
+                <strong>Email:</strong>ozarakesh533@gmail.com<br>
+              </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Social Networks</h4>
+              <div class="social-links mt-3">
+                <a href="https://github.com/ozarakesh533" class="github"><i class="bx bxl-github"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="www.linkedin.com/in/rakeshoza" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container py-4">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Rakesh Oza</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="#">Rakesh Oza</a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- AJAX Form Handler -->
+    <script src="assets/js/form-handler.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

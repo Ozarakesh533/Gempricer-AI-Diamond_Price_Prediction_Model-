@@ -1,0 +1,412 @@
+Metadata-Version: 2.1
+Name: mlProject
+Version: 0.0.0
+Summary: A small python package for ml app
+Home-page: https://github.com/Ozarakesh533/GemPricer-AI
+Author: Ozarakesh533
+Author-email: ozarakesh533@gmail.com
+Project-URL: Bug Tracker, https://github.com/Ozarakesh533/GemPricer-AI/issues
+
+# 💎 GemPricer AI - Diamond Price Prediction System
+
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.0+-orange.svg)](https://scikit-learn.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## 🎯 Project Overview
+
+**GemPricer AI** is an advanced machine learning-powered web application that revolutionizes diamond valuation using AI-driven predictions based on the industry-standard **4Cs** (Cut, Clarity, Color, Carat). This sophisticated system provides accurate, data-driven diamond price predictions to help jewelers, buyers, and enthusiasts make informed decisions.
+
+### ✨ Key Features
+
+- 🧠 **AI-Powered Predictions**: Advanced Random Forest Regression model with 98.27% accuracy
+- 🎨 **Modern Web Interface**: Beautiful, responsive UI with real-time predictions
+- 📊 **4Cs Analysis**: Comprehensive evaluation based on Cut, Clarity, Color, and Carat
+- 🔄 **Real-time Processing**: Instant price predictions with detailed breakdowns
+- 📈 **Model Training Pipeline**: Automated ML pipeline with data validation and transformation
+- 🚀 **Production Ready**: Flask-based web application with comprehensive error handling
+
+## 🏗️ Architecture Overview
+
+### System Components
+
+```
+GemPricer-AI/
+├── 🎯 Frontend (Web Interface)
+│   ├── templates/           # HTML templates
+│   ├── assets/css/         # Styling and responsive design
+│   └── assets/js/          # Interactive functionality
+├── 🧠 Machine Learning Pipeline
+│   ├── mlProject/          # Core ML package
+│   ├── artifacts/          # Trained models and data
+│   └── main.py             # Training pipeline
+├── 🌐 Web Application
+│   ├── app.py              # Flask web server
+│   └── prediction_pipeline.py # Real-time prediction
+└── 📊 Data & Configuration
+    ├── artifacts/data_ingestion/    # Raw data
+    ├── artifacts/data_transformation/ # Processed data
+    └── mlProject/config/           # Configuration files
+```
+
+### ML Pipeline Architecture
+
+The system follows a sophisticated 5-stage machine learning pipeline:
+
+1. **Data Ingestion** → Download and extract diamond dataset
+2. **Data Validation** → Schema validation and quality checks
+3. **Data Transformation** → Feature engineering and preprocessing
+4. **Model Training** → Random Forest model training
+5. **Model Evaluation** → Performance metrics and MLflow tracking
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python 3.8 or higher
+- pip (Python package installer)
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Ozarakesh533/GemPricer-AI.git
+   cd GemPricer-AI
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install flask pandas scikit-learn numpy joblib pyyaml
+   ```
+
+3. **Train the model** (First time setup)
+   ```bash
+   python main.py
+   ```
+
+4. **Launch the web application**
+   ```bash
+   python app.py
+   ```
+
+5. **Access the application**
+   - Open your browser and navigate to `http://localhost:8080`
+   - Start predicting diamond prices!
+
+## 📊 Model Performance
+
+Our Random Forest Regression model achieves exceptional performance:
+
+| Metric | Value |
+|--------|-------|
+| **R² Score** | 98.27% |
+| **RMSE** | $526.33 |
+| **MAE** | $265.51 |
+| **MSE** | $277,023.30 |
+
+### Model Architecture
+
+- **Algorithm**: Random Forest Regressor
+- **Features**: 9 input features (Carat, Cut, Color, Clarity, Depth, Table, X, Y, Z)
+- **Preprocessing**: StandardScaler for numerical features, OrdinalEncoder for categorical
+- **Validation**: Train-test split with outlier removal
+
+## 💎 The 4Cs Explained
+
+### 🔪 Cut
+The precision and artistry of the diamond's shape affects its brilliance and fire.
+- **Categories**: Fair, Good, Very Good, Premium, Ideal
+
+### 🔍 Clarity
+The absence of inclusions and imperfections determines the diamond's purity.
+- **Categories**: I1, SI2, SI1, VS2, VS1, VVS2, VVS1, IF
+
+### 🎨 Color
+The whiteness or tint of the diamond impacts its visual appeal.
+- **Categories**: J, I, H, G, F, E, D (D being colorless)
+
+### ⚖️ Carat
+The weight and size of the diamond directly influences its value.
+- **Range**: 0.2 - 5.01 carats
+
+## 🛠️ Technical Details
+
+### Core Technologies
+
+- **Backend**: Flask (Python web framework)
+- **Machine Learning**: Scikit-learn (Random Forest Regressor)
+- **Data Processing**: Pandas, NumPy
+- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap
+- **Model Persistence**: Joblib
+- **Configuration**: YAML
+
+### Key Features
+
+- **Real-time Predictions**: Instant price calculations
+- **Input Validation**: Comprehensive data validation
+- **Error Handling**: Robust error management and logging
+- **Responsive Design**: Mobile-friendly interface
+- **Model Versioning**: MLflow integration for experiment tracking
+
+## 📁 Project Structure
+
+```
+GemPricer-AI/
+├── app.py                          # Main Flask application
+├── main.py                         # ML pipeline training script
+├── setup.py                        # Package configuration
+├── train_model.py                  # Model training utilities
+│
+├── mlProject/                      # Core ML package
+│   ├── components/                 # ML components
+│   │   ├── data_ingestion.py       # Data download and extraction
+│   │   ├── data_validation.py      # Data quality checks
+│   │   ├── data_transformation.py  # Feature engineering
+│   │   ├── model_trainer.py        # Model training logic
+│   │   └── model_evaluation.py     # Performance evaluation
+│   ├── pipeline/                   # ML pipelines
+│   │   ├── data_ingestion_pipeline.py
+│   │   ├── data_validation_pipeline.py
+│   │   ├── data_transformation_pipeline.py
+│   │   ├── model_trainer_pipeline.py
+│   │   ├── model_evaluation_pipeline.py
+│   │   └── prediction_pipeline.py  # Real-time predictions
+│   ├── config/                     # Configuration management
+│   │   └── configuration.py
+│   ├── entity/                     # Data classes
+│   │   └── config_entity.py
+│   └── utils/                      # Utility functions
+│       └── common.py
+│
+├── artifacts/                      # Generated artifacts
+│   ├── data_ingestion/             # Raw data files
+│   ├── data_transformation/        # Processed data and encoders
+│   ├── model_trainer/              # Trained models
+│   ├── model_evaluation/           # Performance metrics
+│   └── data_validation/            # Validation reports
+│
+├── templates/                      # HTML templates
+│   ├── ai_index.html               # Main application interface
+│   ├── results.html                # Prediction results page
+│   └── error.html                  # Error handling page
+│
+├── assets/                         # Static assets
+│   ├── css/                        # Stylesheets
+│   ├── js/                         # JavaScript files
+│   ├── img/                        # Images and icons
+│   └── vendor/                     # Third-party libraries
+│
+└── logs/                           # Application logs
+    └── running_logs.log
+```
+
+## 🎮 Usage Guide
+
+### Web Interface
+
+1. **Navigate to the application** at `http://localhost:8080`
+2. **Fill in the diamond specifications**:
+   - Carat weight (0.2 - 5.01)
+   - Cut quality (Fair to Ideal)
+   - Color grade (J to D)
+   - Clarity grade (I1 to IF)
+   - Physical dimensions (X, Y, Z in mm)
+   - Depth and Table percentages
+3. **Click "Predict Price"** to get instant results
+4. **View detailed prediction** with formatted price display
+
+### API Usage
+
+The application also supports API endpoints:
+
+```bash
+# Make a prediction via POST request
+curl -X POST http://localhost:8080/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "carat": 1.0,
+    "cut": "Ideal",
+    "color": "D",
+    "clarity": "IF",
+    "depth": 61.5,
+    "table": 55.0,
+    "x": 6.5,
+    "y": 6.6,
+    "z": 4.0
+  }'
+```
+
+### Model Training
+
+To retrain the model with new data:
+
+```bash
+python main.py
+```
+
+This will execute the complete ML pipeline:
+- Data ingestion and validation
+- Feature transformation
+- Model training
+- Performance evaluation
+
+## 🔧 Configuration
+
+### Environment Variables
+
+- `PORT`: Server port (default: 8080)
+- `FLASK_ENV`: Environment mode (development/production)
+
+### Model Parameters
+
+The Random Forest model uses the following hyperparameters:
+- `n_estimators`: Number of trees in the forest
+- `random_state`: Seed for reproducible results
+- `max_depth`: Maximum depth of trees (auto)
+
+## 🧪 Testing
+
+### Manual Testing
+
+1. **Start the application**: `python app.py`
+2. **Test various diamond specifications**:
+   - High-quality diamonds (Ideal cut, D color, IF clarity)
+   - Medium-quality diamonds (Good cut, G color, VS1 clarity)
+   - Lower-quality diamonds (Fair cut, J color, I1 clarity)
+3. **Verify predictions** are reasonable and consistent
+
+### Performance Testing
+
+Monitor the application logs for:
+- Prediction response times
+- Memory usage
+- Error rates
+
+## 🚀 Deployment
+
+### Local Development
+
+```bash
+python app.py
+```
+
+### Production Deployment
+
+1. **Set environment variables**:
+   ```bash
+   export FLASK_ENV=production
+   export PORT=8080
+   ```
+
+2. **Use a production WSGI server**:
+   ```bash
+   pip install gunicorn
+   gunicorn -w 4 -b 0.0.0.0:8080 app:app
+   ```
+
+### Docker Deployment (Optional)
+
+Create a `Dockerfile`:
+
+```dockerfile
+FROM python:3.9-slim
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+RUN python main.py
+
+EXPOSE 8080
+CMD ["python", "app.py"]
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature-name`
+3. **Make your changes** and test thoroughly
+4. **Commit your changes**: `git commit -m "Add feature-name"`
+5. **Push to the branch**: `git push origin feature-name`
+6. **Submit a pull request**
+
+### Development Guidelines
+
+- Follow PEP 8 Python style guidelines
+- Add comprehensive docstrings to functions
+- Include unit tests for new features
+- Update documentation for API changes
+
+## 📊 Dataset Information
+
+The model is trained on a comprehensive diamond dataset containing:
+- **Total Samples**: 50,000+ diamond records
+- **Features**: Carat, Cut, Color, Clarity, Depth, Table, X, Y, Z dimensions
+- **Target**: Price in USD
+- **Data Quality**: Cleaned and validated data with outlier removal
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **Model files not found**:
+   ```bash
+   python main.py  # Train the model first
+   ```
+
+2. **Port already in use**:
+   ```bash
+   export PORT=8081  # Use different port
+   ```
+
+3. **Dependencies missing**:
+   ```bash
+   pip install -r requirements.txt  # Install all dependencies
+   ```
+
+### Log Files
+
+Check the following logs for debugging:
+- `app.log`: Application runtime logs
+- `logs/running_logs.log`: ML pipeline logs
+
+## 📈 Future Enhancements
+
+- [ ] **Multi-gemstone Support**: Extend to other precious stones
+- [ ] **Advanced ML Models**: Implement deep learning approaches
+- [ ] **Real-time Market Data**: Integrate live diamond market prices
+- [ ] **Image Recognition**: Add diamond image analysis
+- [ ] **Mobile App**: Native mobile application
+- [ ] **API Documentation**: Swagger/OpenAPI documentation
+- [ ] **User Authentication**: User accounts and prediction history
+- [ ] **Batch Processing**: Multiple diamond predictions
+
+## 📞 Support
+
+For support and questions:
+- **Email**: ozarakesh533@gmail.com
+- **GitHub Issues**: [Create an issue](https://github.com/Ozarakesh533/GemPricer-AI/issues)
+- **Documentation**: Check this README and inline code comments
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Dataset**: Diamond dataset from Kaggle
+- **MLflow**: For experiment tracking and model versioning
+- **Scikit-learn**: For machine learning algorithms
+- **Flask**: For the web framework
+- **Bootstrap**: For responsive UI components
+
+---
+
+**Made with ❤️ by [Ozarakesh533](https://github.com/Ozarakesh533)**
+
+*Revolutionizing diamond valuation through the power of artificial intelligence.*

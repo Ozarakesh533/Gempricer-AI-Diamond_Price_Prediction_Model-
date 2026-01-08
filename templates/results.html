@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diamond Price Prediction • Result</title>
+  <link href="/assets/img/diamond.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --night:#0b1020; --violet:#7c3aed; --cyan:#22d3ee; --pink:#fb7185; }
+    body{background:radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,.20), transparent),
+                 radial-gradient(800px 400px at 90% 20%, rgba(34,211,238,.15), transparent),
+                 radial-gradient(1000px 500px at 50% 100%, rgba(251,113,133,.10), transparent),
+                 var(--night); color:#e2e8f0; font-family:Poppins,ui-sans-serif}
+    .glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px)}
+    .grad-text{background:linear-gradient(135deg,var(--cyan),var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  </style>
+  <script>
+    function animateCount(el, from, to, duration = 900) {
+      const start = performance.now();
+      function frame(now) {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = (1 - Math.cos(Math.PI * p)) / 2;
+        const val = from + (to - from) * eased;
+        el.textContent = '$' + val.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+  </script>
+  </head>
+<body class="min-h-screen">
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <header class="flex items-center justify-between py-4">
+      <a class="flex items-center gap-2" href="/"><img src="/assets/img/diamond.png" class="h-7 w-7" alt="logo"/><span class="font-[Orbitron] tracking-widest">GemPricer AI</span></a>
+      <a href="/" class="text-sm text-cyan-300 hover:underline">Back to Home</a>
+    </header>
+
+    <section class="glass rounded-2xl p-6 md:p-10 mt-4">
+      <div class="text-center">
+        <h1 class="font-[Orbitron] text-3xl">Diamond Price Prediction</h1>
+        <p class="text-slate-300 mt-2">Your diamond's estimated value</p>
+      </div>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="glass rounded-xl p-4 text-center">
+          <div class="text-xs text-slate-400">Carat Weight</div>
+          <div class="text-lg font-semibold">{{ carat }} ct</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center">
+          <div class="text-xs text-slate-400">Cut Quality</div>
+          <div class="text-lg font-semibold">{{ cut }}</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center">
+          <div class="text-xs text-slate-400">Color Grade</div>
+          <div class="text-lg font-semibold">{{ color }}</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center">
+          <div class="text-xs text-slate-400">Clarity</div>
+          <div class="text-lg font-semibold">{{ clarity }}</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center">
+          <div class="text-xs text-slate-400">Dimensions (mm)</div>
+          <div class="text-lg font-semibold">{{ x }} × {{ y }} × {{ z }}</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center">
+          <div class="text-xs text-slate-400">Depth & Table</div>
+          <div class="text-lg font-semibold">{{ depth }}% / {{ table }}%</div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center glass rounded-xl p-6">
+        <div class="text-slate-400">Estimated Market Value</div>
+        <div id="price" class="grad-text text-4xl md:text-5xl font-extrabold tracking-tight mt-1">
+          {% if formatted_prediction %}
+            {{ formatted_prediction }}
+          {% else %}
+            ${{ "%.2f"|format(prediction|float) }}
+          {% endif %}
+        </div>
+        {% if error %}
+          <div class="mt-3 text-pink-300 text-sm">{{ error }}</div>
+        {% endif %}
+        <div class="text-xs text-slate-500 mt-2">Based on current market analysis and diamond grading standards</div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="/" class="inline-block px-6 py-3 rounded-lg font-semibold" style="background:linear-gradient(135deg,var(--violet),var(--cyan)); color:#0b1020">Back to Home</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Animate to the final prediction value if server provided numeric prediction
+    (function(){
+      var el = document.getElementById('price');
+      if (!el) return;
+      var text = el.textContent || '';
+      var match = text.replace(/[^0-9.]/g, '');
+      var target = parseFloat(match || '0');
+      if (!isNaN(target)) {
+        animateCount(el, 0, target, 1000);
+      }
+    })();
+  </script>
+</body>
+</html>
